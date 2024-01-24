@@ -2,7 +2,7 @@ import './home.css';
 
 export const BriefInfo = () => {
     return (
-        <div className="w-full min-h-screen bg-[#e3d5ce] flex items-center justify-center">
+        <div className="w-full min-h-screen bg-[#f5ebe6] flex items-center justify-center">
             <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 flex relative flex-col md:flex-row">
                 <div
                     className="w-full md:w-1/2 h-full py-16 justify-center items-center relative z-10 text-center md:text-left">

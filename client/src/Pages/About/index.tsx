@@ -2,13 +2,13 @@
 const About = () => {
     return (
         <div>
-            <div id="about" className="relative bg-[#e3d5ce] overflow-hidden mt-[4.5rem]">
+            <div id="about" className="relative bg-[#f5ebe6] overflow-hidden mt-[4.5rem]">
                 <div className="max-w-7xl mx-auto">
                     <div
-                        className="relative z-10 pb-8 bg-[#e3d5ce] sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                        className="relative z-10 pb-8 bg-[#f5ebe6] sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
                         <svg
                             className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-                            fill="#e3d5ce" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                            fill="#f5ebe6" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                             <polygon points="50,0 100,0 50,100 0,100"></polygon>
                         </svg>
 
@@ -17,34 +17,42 @@ const About = () => {
                         <main
                             className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                             <div className="sm:text-center lg:text-left">
-                                <h2 className="my-6 text-2xl tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl">
-                                    About me
-                                </h2>
+                                <h1 className="text-4xl font-bold mb-6">Salutations! I'm Milena</h1>
 
                                 <p className="w-[450px]">
-                                Welcome to Milena's World
+                                    An ardent coder weaving together the intricacies of programming and the kaleidoscope of life's pursuits.
+                                </p>
 
-Hello there! I'm Milena, and I'm thrilled to welcome you to my little corner of the internet. This website is more than just a digital space; it's a reflection of who I am, what I'm passionate about, and the journey I'm on.
+                                <div className="mt-8">
+                                    <h2 className="text-2xl font-bold mb-4">Educational Sojourn:</h2>
+                                    <p className="w-[450px]">
+                                        Originally set on the path to becoming a doctor, my narrative took a serendipitous turn. Fueled by my emotional compass and a blossoming love for coding, I redirected my trajectory. This odyssey led me to the doors of IU International University of Applied Sciences.
+                                    </p>
+                                </div>
 
-Who Am I?
+                                <div className="mt-8">
+                                    <h2 className="text-2xl font-bold mb-4">Harmony of Work and Study:</h2>
+                                    <p className="w-[450px]">
+                                        In synchrony with my studies, I plunged into the realm of software development. Commencing as an intern at a dynamic software company, I discovered the symphony between theoretical knowledge and real-world application. It's a dance of intellect and practice, propelling my curiosity and determination.
+                                    </p>
+                                </div>
 
+                                <div className="mt-8">
+                                    <h2 className="text-2xl font-bold mb-4">Coding Palette Unveiled:</h2>
+                                    <p className="w-[450px]">
+                                        My coding canvas spans a vibrant spectrum of technologies. Proficient in .NET development and the eloquent language of C#, I navigate the intricate landscapes of relational databases, seamlessly switching between SQL Server, PostgreSQL, and MySQL. On the ever-evolving web frontier, I boldly traverse Node.js, Nest.js, Next.js, and React.js. Here, I craft not just applications but narratives—authentic stories embodied in every line of code.
+                                    </p>
+                                </div>
 
-What Drives Me?
+                                <div className="mt-8">
+                                    <h2 className="text-2xl font-bold mb-4">Beyond the Binary:</h2>
+                                    <p className="w-[450px]">
+                                        Outside the realm of code, I find solace in the melody of piano keys, sketching on the canvas of creativity, and exploring the expansive territories of chemistry and mathematics. Life, after all, is a symphony composed of logic and art, each note resonating with endless possibilities.
+                                    </p>
+                                </div>
 
-
-Why This Website?
-
-
-Explore with Me
-
-
-Connect with Me
-
-
-Thank you for stepping into my world. Let's make this journey an unforgettable one!
-
-Warm regards,
-Milena
+                                <p className="mt-8 w-[450px]">
+                                    Embark on this odyssey where logic dances with creativity, and technology serves as a canvas for innovation. Let's script a vibrant future together!
                                 </p>
                             </div>
                         </main>
@@ -52,7 +60,7 @@ Milena
                 </div>
                 <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
                     <img className="h-56 w-full object-cover object-top sm:h-72 md:h-96 lg:w-full lg:h-full"
-                         src="/images/image.jpg" alt=""/>
+                        src="/images/image.jpg" alt="" />
                 </div>
             </div>
         </div>

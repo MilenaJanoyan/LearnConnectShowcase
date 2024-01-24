@@ -63,7 +63,7 @@ const Navbar = () => {
     return (
         <header className="w-full fixed top-0 left-0 right-0 z-50">
             <nav
-                className={`py-4 md:px-8 px-4 bg-[#e3d5ce] border-b-2 ${
+                className={`py-4 md:px-8 px-4 bg-[#f5ebe6] border-b-2 ${
                     isSticky ? "border-[#524c49] sticky top-0 right-0 left-0" : "border-[#3f3a38]"
                 } opacity-95`}
             >

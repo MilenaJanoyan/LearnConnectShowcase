@@ -50,7 +50,7 @@ const Articles = () => {
     if (isLoading) return <Spinner loading={isLoading} />
 
     return (
-        <div className="w-full min-h-screen bg-[#e3d5ce] flex items-center justify-center pt-24 pb-8">
+        <div className="w-full min-h-screen bg-[#f5ebe6] flex items-center justify-center pt-24 pb-8">
             <div className="container-md mx-auto px-4 sm:px-8 md:px-16 lg:px-24 flex flex-wrap justify-between gap-4">
                 <div className="w-full flex justify-end">
                     {

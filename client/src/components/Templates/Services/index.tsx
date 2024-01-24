@@ -24,16 +24,16 @@ const Services = () => {
         <div className="w-full min-h-screen bg-[#484240] flex items-center justify-center">
             <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 flex justify-between md:flex-row">
                 <div className="w-full md:w-1/3 h-full py-16 justify-center items-center text-center md:text-left">
-                    <div className="w-[140px] h-[6px] bg-[#e3d5ce] mb-6"/>
+                    <div className="w-[140px] h-[6px] bg-[#f5ebe6] mb-6"/>
                     <div>
-                        <h1 className="text-4xl md:text-6xl text-[#e3d5ce] font-bold mb-4">SERVICES I OFFER</h1>
+                        <h1 className="text-4xl md:text-6xl text-[#f5ebe6] font-bold mb-4">SERVICES I OFFER</h1>
                     </div>
-                    <p className="text-md md:text-xl text-[#e3d5ce] mb-4 md:mb-6">
-                        I will help with finding a solution and solve your problem
+                    <p className="text-md md:text-xl text-[#f5ebe6] mb-4 md:mb-6">
+                    I provide a diverse range of development and design services to meet your business needs.
                     </p>
                     <div
                         onClick={() => window.open('https://www.linkedin.com/in/milenajanoyan', "_blank")}
-                        className="w-[120px] h-[120px] bg-[#e3d5ce] cursor-pointer rounded-full text-[#252221] text-xl uppercase flex flex-col justify-center items-center hover:opacity-80 transition duration-200 ease-in-out">
+                        className="w-[120px] h-[120px] bg-[#f5ebe6] cursor-pointer rounded-full text-[#252221] text-xl uppercase flex flex-col justify-center items-center hover:opacity-80 transition duration-200 ease-in-out">
                         <span className="font-bold">Let's</span>
                         <span className="font-bold">Talk</span>
                     </div>
@@ -50,7 +50,7 @@ const Services = () => {
                                     onMouseLeave={handleMouseLeave}
                                 >
                                     <div className="flex gap-6">
-                                        <div className={`text-[#e3d5ce] w-full ${activeTag === index ? 'active' : ''}`}>
+                                        <div className={`text-[#f5ebe6] w-full ${activeTag === index ? 'active' : ''}`}>
                                             <h3 className="text-4xl pb-4">
                                                 <span className="font-bold">0{index + 1}</span> {item.title}
                                             </h3>
@@ -74,10 +74,10 @@ const Services = () => {
                                             )}
                                         </div>
                                         <span className="cursor-pointer" onClick={() => window.open(item.url, "_blank")}>
-                                            <BsArrowUpRightCircleFill color="#e3d5ce" size={25}/>
+                                            <BsArrowUpRightCircleFill color="#f5ebe6" size={25}/>
                                         </span>
                                     </div>
-                                    <span className="w-full h-0.5 bg-[#e3d5ce]"/>
+                                    <span className="w-full h-0.5 bg-[#f5ebe6]"/>
                                 </div>
                             </AnimatePresence>
                         ))}

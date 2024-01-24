@@ -24,7 +24,7 @@ const PopularArticle = () => {
         onClose();
     };
     return (
-        <div className="w-full min-h-screen bg-[#c2b4ad] flex items-center justify-center pb-24">
+        <div className="w-full min-h-screen bg-[#f5ebe6] flex items-center justify-center pb-24">
             <div className="flex flex-col gap-8">
                 <div>
                     <h1 className="text-4xl font-bold text-[#252221] uppercase pt-16">Popular articles</h1>
@@ -53,7 +53,7 @@ const PopularArticle = () => {
                             <img className="w-[350px] h-[350px] object-cover" src="/images/photo_work.jpg" alt="img"/>
                         </div>
                         <div>
-                            <h3 className="text-2xl text-[#252221]">Node.js Migrations</h3>
+                            <h3 className="text-2xl text-[#252221]">Migrations</h3>
                         </div>
                         <div className="text-center">
                             { SubstringText('In Node.js, migrations refer to a way of managing and versioning changes to a database schema over time. Migrations are commonly used in web applications to keep track of changes to the database structure, such as creating new tables, modifying existing tables, or adding new columns.', 260) }

@@ -1,7 +1,7 @@
 
 const CvPage = () => {
     return (
-        <div className="w-full bg-[#e3d5ce] min-h-screen flex items-center justify-center">
+        <div className="w-full bg-[#f5ebe6] min-h-screen flex items-center justify-center">
             <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 flex flex-col md:flex-row items-center">
 
                 <div className="md:w-1/3 text-center mb-8 md:mb-0">
