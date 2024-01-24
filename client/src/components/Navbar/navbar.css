@@ -1,0 +1,81 @@
+.btnLine {
+    @apply px-4 py-2 border border-[#252221] rounded-sm text-[#252221]
+    hover:bg-[#252221] hover:text-white transition-all duration-300
+}
+
+.mobile-menu-enter {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.mobile-menu-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+}
+
+.mobile-menu-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu-exit-active {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 300ms, transform 300ms;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-menu {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.animated-text {
+    overflow: hidden;
+    display: inline-block;
+    letter-spacing: -0.3em;
+    transition: letter-spacing 0.5s;
+    color: #252221
+}
+
+.text-container::after {
+    content: "ilena \00a0";
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.initial-text2::after {
+    content: "anoyan";
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.animated-text:hover {
+    letter-spacing: 0.1em;
+}
+
+.animated-text:hover .text-container::after,
+.animated-text:hover .initial-text2::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+

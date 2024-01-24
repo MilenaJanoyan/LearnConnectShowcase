@@ -1,1 +1,1 @@
-# Shop-App
+# LearnConnectShowcase

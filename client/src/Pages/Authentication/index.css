@@ -1,0 +1,8 @@
+.login-section {
+    position: relative;
+    background-image: url("https://snaptaxsearch.com/wp-content/uploads/2014/04/bokeh-cover-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+}

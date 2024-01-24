@@ -1,0 +1,4 @@
+.btnLetsTalk {
+    @apply bg-black text-white text-xl px-8 py-4 hover:bg-transparent transition
+    duration-200 ease-in-out hover:text-black hover:border hover:border-black border border-transparent;
+}
