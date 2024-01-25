@@ -34,7 +34,7 @@ class PostService {
         res.json(posts);
     }
 
-    async getOne (req, res, next) {
+    async getOne(req, res, next) {
         const postId = req.params.postId;
 
         PostModel.findOneAndUpdate(
@@ -66,7 +66,7 @@ class PostService {
         ).populate('user');
     }
 
-    async delete (req, res) {
+    async delete(req, res) {
         const postId = req.params.postId;
 
         PostModel.findOneAndDelete(
@@ -94,7 +94,7 @@ class PostService {
         );
     }
 
-    async update (req,res){
+    async update(req, res) {
         const postId = req.params.id;
 
         const parsedTags = Array.isArray(req.body.tags)

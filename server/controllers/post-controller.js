@@ -2,6 +2,7 @@ import postService from "../service/post-service.js";
 import ApiError from "../exceptions/api-error.js";
 
 class PostController {
+    // Creates an article
     async create (req, res, next) {
         try {
             return postService.create(req, res, next)
@@ -10,6 +11,7 @@ class PostController {
         }
     }
 
+    // Gets all the articles
     async getAll (req, res, next) {
         try {
             return postService.getAll(req, res, next);
@@ -18,6 +20,7 @@ class PostController {
         }
     }
 
+    // Gets a single article
     async getOne (req, res, next) {
         try {
             const onePost = await postService.getOne(req, res, next)
@@ -27,6 +30,7 @@ class PostController {
         }
     }
 
+    // Deletes an article
     async delete (req, res, next) {
         try {
              await postService.delete(req, res)
@@ -35,6 +39,8 @@ class PostController {
         }
     }
 
+
+    // Updates an article
     async update (req, res, next){
         try {
             const updated = await postService.update(req, res)
@@ -47,6 +53,7 @@ class PostController {
         }
     }
 
+    // Adds a comment to the artcle
     async addComment(req, res, next) {
         try {
             const addedComment = await postService.addComment(req, res)

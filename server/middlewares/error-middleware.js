@@ -1,5 +1,6 @@
 import ApiError from '../exceptions/api-error.js';
 
+// Middleware that handles errors
 export default function errorHandler(err, req, res, next) {
     console.log(err);
     if (err instanceof ApiError) {

@@ -22,8 +22,8 @@ export const BriefInfo = () => {
                     <div className="relative h-60 md:h-full">
                         <img
                             className="w-full h-full object-cover"
-                            src="https://placekitten.com/800/600"
-                            alt="Изображение"
+                            src="/images/image.jpg"
+                            alt="photo"
                         />
                     </div>
                 </div>
