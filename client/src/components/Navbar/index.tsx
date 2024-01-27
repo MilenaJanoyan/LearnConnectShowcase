@@ -103,9 +103,13 @@ const Navbar = () => {
 
                     <div className={`navbar-menu lg:flex items-center gap-3 hidden ${!isLogin ? 'text-[#252221]' : "text-white"} pr-60`}>
                         {menuItems.map(menuItem => (
-                            <Link key={menuItem.id} to={menuItem.path} className={`block hover:text-black py-2 px-4 ${
-                                pathname === menuItem.path ? "text-indigo-900" : ""
-                            }`}>
+                            <Link
+                                key={menuItem.id}
+                                to={menuItem.path}
+                                className={`block py-2 px-4 ${
+                                    pathname === menuItem.path ? "active hover:text-black" : "hover:text-black"
+                                }`}
+                            >
                                 {menuItem.name}
                             </Link>
                         ))}
@@ -115,9 +119,6 @@ const Navbar = () => {
                         {
                             userInfo ? (
                                 <div className="flex justify-between items-center gap-2">
-                                    <img className="w-8 h-8 rounded-full mr-2"
-                                         src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-                                         alt="User Avatar"/>
                                     <p>{userInfo?.email}</p>
                                     <div className="lg:block hidden" onClick={logoutUser}>
                                         <button className="btnLine">Log Out</button>

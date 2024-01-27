@@ -17,6 +17,13 @@
     background-size: cover;
 }
 
+.box3 {
+    margin-top: 40px;
+    z-index: 10;
+    background-size: cover;
+    margin-left: -40px;
+}
+
 .btnLine {
     @apply px-4 py-2 border border-[#252221] rounded-sm text-[#252221]
     hover:bg-[#252221] hover:text-white transition-all duration-300

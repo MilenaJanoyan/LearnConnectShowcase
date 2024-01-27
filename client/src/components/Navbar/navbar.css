@@ -93,9 +93,10 @@
     display: block;
     background-color: #252221;
     margin-top: 3px;
+    transition: all 0.5s;
 }
 
-.navbar-menu a:hover::after {
+.navbar-menu a:hover::after,
+.navbar-menu a.active::after {
     width: 100%;
-    transition: all .5s;
 }

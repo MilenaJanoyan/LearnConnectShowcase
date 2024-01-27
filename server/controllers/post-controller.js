@@ -34,7 +34,6 @@ class PostController {
     async getPopularPosts (req, res, next) {
         try {
             const popularPosts = await postService.getPopularPosts(req, res, next)
-            console.log(popularPosts, "POPULAR ============")
             return popularPosts
         } catch (err) {
             next(err)

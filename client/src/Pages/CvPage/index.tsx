@@ -211,21 +211,6 @@ const CvPage = () => {
                                     </div>
                                 </div>
                             </div>
-
-                            <div className="w-1/2 flex flex-col text-white gap-2 pl-20">
-                                <h3 className="text-3xl font-bold">Contact:</h3>
-                                {/*<Link className="text-xl" to={`tel:+37477873780`}>*/}
-                                {/*    +374 77 87 37 80*/}
-                                {/*</Link>*/}
-                                <Link className="text-xl" to={`mailto:milena.janoyan@iu-study.org`}>
-                                    milena.janoyan@iu-study.org
-                                </Link>
-                                <span className="text-xl">Yerevan, Armenia</span>
-                                <Link className="text-xl underline" to={`https://www.linkedin.com/in/milenajanoyan`}>
-                                    Linkedin
-                                </Link>
-                            </div>
-
                         </div>
                     </div>
 

@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
   };
 
   return {
-    plugins: [react(), "@ramonak/react-progress-bar"],
+    plugins: [react(), "@ramonak/react-progress-bar", "react-slick", "slick-carousel"],
     define: processEnvValues,
   };
 });
