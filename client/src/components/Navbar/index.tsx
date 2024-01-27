@@ -9,11 +9,10 @@ import "./navbar.css";
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
-    const location = useLocation();
     const navigate = useNavigate();
     const [userInfo, setUserInfo] = useState<Partial<IUserInfo | null>>(null)
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const { state } = useLocation();
+    const { state, pathname } = useLocation();
 
     const getUserInfo = async () => {
         try {
@@ -60,44 +59,56 @@ const Navbar = () => {
         }
     }
 
+    const menuItems: Array<{path: string, name: string, id: number}> = [
+        {
+            id: 1,
+            path: '/',
+            name: 'Home'
+        },
+        {
+            id: 2,
+            path: '/cv-page',
+            name: 'CV & Skills'
+        },
+        {
+            id: 3,
+            path: '/about',
+            name: 'About Me'
+        },
+        {
+            id: 4,
+            path: '/articles',
+            name: 'Articles'
+        }
+    ];
+
+    const isLogin = pathname === '/login' || pathname === '/registration'
+
     return (
         <header className="w-full fixed top-0 left-0 right-0 z-50">
             <nav
-                className={`py-4 md:px-8 px-4 bg-[#f5ebe6] border-b-2 ${
+                className={`py-4 md:px-8 px-4 ${!isLogin ? 'bg-[#f5ebe6] border-b-2' : ''} ${
                     isSticky ? "border-[#524c49] sticky top-0 right-0 left-0" : "border-[#3f3a38]"
                 } opacity-95`}
             >
                 <div className="flex items-center justify-between">
                     <div className="font-bold text-2xl cursor-pointer text-black w-[290px]">
                         <Link to={"/"}>
-                            <span className="animated-text">
+                            <span className={`animated-text ${isLogin ? 'login' : ''}`}>
                               <span className="text-container">M</span>
                               <span className="initial-text2">J</span>
                             </span>
                         </Link>
                     </div>
 
-                    <div className="lg:flex items-center gap-3 hidden text-[#252221] pr-60">
-                        <Link to="/" className={`block hover:text-black py-2 px-4 ${
-                            location.pathname === "/" ? "text-indigo-900" : ""
-                        }`}>
-                            Home
-                        </Link>
-                        <Link to="/cv-page" className={`block hover:text-black py-2 px-4 ${
-                            location.pathname === "/cv-page" ? "text-indigo-900" : ""
-                        }`}>
-                            CV & Skills
-                        </Link>
-                        <Link to="/about" className={`block hover:text-black py-2 px-4 ${
-                            location.pathname === "/about" ? "text-indigo-900" : ""
-                        }`}>
-                            About Me
-                        </Link>
-                        <Link to="/articles" className={`block hover:text-black py-2 px-4 ${
-                            location.pathname === "/articles" ? "text-indigo-900" : ""
-                        }`}>
-                            Articles
-                        </Link>
+                    <div className={`navbar-menu lg:flex items-center gap-3 hidden ${!isLogin ? 'text-[#252221]' : "text-white"} pr-60`}>
+                        {menuItems.map(menuItem => (
+                            <Link key={menuItem.id} to={menuItem.path} className={`block hover:text-black py-2 px-4 ${
+                                pathname === menuItem.path ? "text-indigo-900" : ""
+                            }`}>
+                                {menuItem.name}
+                            </Link>
+                        ))}
                     </div>
 
                     <div className="flex gap-4">
@@ -109,12 +120,12 @@ const Navbar = () => {
                                          alt="User Avatar"/>
                                     <p>{userInfo?.email}</p>
                                     <div className="lg:block hidden" onClick={logoutUser}>
-                                        <button className="btnLine">LogOut</button>
+                                        <button className="btnLine">Log Out</button>
                                     </div>
                                 </div>
                             ) : (
                                 <div className="lg:block hidden" onClick={() => navigate('/login')}>
-                                    <button className="btnLine">Login</button>
+                                    <button className={`${!isLogin ? 'btnLine' : 'btnLineLogin'}`}>Login</button>
                                 </div>
                             )
                         }

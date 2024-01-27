@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
   };
 
   return {
-    plugins: [react()],
+    plugins: [react(), "@ramonak/react-progress-bar"],
     define: processEnvValues,
   };
 });

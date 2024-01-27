@@ -42,9 +42,8 @@ const Services = () => {
                 <div className="w-full md:w-1/2 md:right-20 ">
                     <div className="md:h-full flex flex-col justify-around gap-8">
                         {skillsContent.map((item, index) => (
-                            <AnimatePresence initial={false}>
+                            <AnimatePresence initial={false} key={item.id}>
                                 <div
-                                    key={item.id}
                                     className="flex flex-col gap-6"
                                     onMouseOver={() => handleMouseOver(index)}
                                     onMouseLeave={handleMouseLeave}

@@ -44,3 +44,11 @@ export const addComment = async (data: Partial<ICommentData>) => {
         console.log(err)
     }
 }
+
+export const getPopularPosts = async (count: number) => {
+    try {
+        return await $host.get(`/post/popular/${count || 3}`)
+    } catch (err) {
+        console.log(err)
+    }
+}

@@ -34,6 +34,24 @@ class PostService {
         res.json(posts);
     }
 
+    async getPopularPosts(req, res, next) {
+        try {
+            const count = Number(req.params.count) || 3;
+            const popularPosts = await PostModel.find()
+                .sort({ viewsCount: -1 })
+                .limit(count)
+                .populate({
+                    path: 'user',
+                    select: '-password -__v'
+                })
+                .exec();
+
+            res.json(popularPosts);
+        } catch (error) {
+            next(error);
+        }
+    }
+
     async getOne(req, res, next) {
         const postId = req.params.postId;
 

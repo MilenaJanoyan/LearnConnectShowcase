@@ -1,12 +1,13 @@
 import Post from "../../components/Post";
-import {useEffect, useState} from "react";
-import {IUserInfo} from "../../utils/types/user.ts";
-import {getMe} from "../../API/services/userService.ts";
-import {useNavigate} from "react-router-dom";
-import {SUPER_ADMIN} from "../../utils/constantUrls.ts";
-import {getAllPosts} from "../../API/services/postService.ts";
-import {IPostResponse} from "../../utils/types/post.ts";
+import { useEffect, useState } from "react";
+import { IUserInfo } from "../../utils/types/user.ts";
+import { getMe } from "../../API/services/userService.ts";
+import {Link, useNavigate} from "react-router-dom";
+import {ROLE_USER, SUPER_ADMIN} from "../../utils/constantUrls.ts";
+import { getAllPosts } from "../../API/services/postService.ts";
+import { IPostResponse } from "../../utils/types/post.ts";
 import Spinner from "../../components/Spinner";
+import './index.css';
 
 const Articles = () => {
 
@@ -16,12 +17,14 @@ const Articles = () => {
     const isAdmin = userInfo?.role === SUPER_ADMIN
     const [isLoading, setIsLoading] = useState(false)
 
+    const [isAuth, setIsAuth] = useState(false)
+
     const getArticles = async () => {
         try {
             setIsLoading(true)
             const res = await getAllPosts()
             setAllPosts(res)
-
+            setIsAuth(res.role === ROLE_USER)
         } catch (err) {
             console.log(err)
         } finally {
@@ -34,6 +37,7 @@ const Articles = () => {
             const res = await getMe()
             if (res) {
                 setUserInfo(res)
+                console.log(res, 'ssssssssss')
             }
         } catch (err) {
             console.log(err)
@@ -61,6 +65,7 @@ const Articles = () => {
                         )
                     }
                 </div>
+
                 <div className="w-full flex flex-wrap gap-8 justify-center ">
                     {
                         allPosts?.map((post: IPostResponse) => {
@@ -76,6 +81,7 @@ const Articles = () => {
                                 user={post.user}
                                 updatedAt={post.updatedAt}
                                 isAdmin={isAdmin}
+                                isAuth={isAuth}
                             />
                         })
                     }

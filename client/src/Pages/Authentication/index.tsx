@@ -101,7 +101,7 @@ const Authentication = () => {
                                         className={`w-full bg-white opacity-30 py-3 pl-12 rounded-full px-4 border-none text-black ${
                                             errors.password ? "border-red-500" : "border-gray-300"
                                         }`}
-                                        placeholder="Email"
+                                        placeholder="Password"
                                         value={undefined}
                                     />
                                 </div>

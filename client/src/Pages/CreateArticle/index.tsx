@@ -103,7 +103,7 @@ const CreateArticle = () => {
     }
 
     return (
-        <div className="w-full pt-24 bg-[#f2f5ea] flex flex-col justify-center p-4 md:p-8 lg:py-24 lg:px-36 ">
+        <div className="w-full pt-24 bg-[#f5ebe6] flex flex-col justify-center p-4 md:p-8 lg:py-24 lg:px-36 ">
             <h1 className="text-2xl font-bold mb-4">Create Article Page</h1>
 
             <div className="flex flex-col items-center gap-4 self-start">

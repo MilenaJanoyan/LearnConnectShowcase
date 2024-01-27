@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 import {addComment, deletePost, getOnePosts} from "../../API/services/postService.ts";
 import {ICommentData, IPostResponse} from "../../utils/types/post.ts";
 import {formatDateTime} from "../../utils/formaters.ts";
@@ -18,6 +18,7 @@ const ArticlePage = () => {
     const [showWarning, setShowWarning] = useState(false)
     const isAdmin = userInfo?.role === SUPER_ADMIN;
     const navigate = useNavigate();
+    const { state } = useLocation();
     const getPost = async () => {
         try {
             if (id) {
@@ -78,11 +79,11 @@ const ArticlePage = () => {
     useEffect(() => {
         getPost()
         getUserInfo()
-    }, []);
+    }, [state]);
 
 
     return (
-        <div className="w-full min-h-screen bg-[#f2f5ea] flex flex-col items-center pt-24">
+        <div className="w-full min-h-screen bg-[#f5ebe6] flex flex-col items-center pt-24">
             <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 w-full md:flex md:flex-col md:justify-between">
                 <div className="w-full md:w-1/2 mb-8 md:mb-0">
                     <img className="w-full" src={`${article.imageUrl ? `${process.env.REACT_APP_API_URL}${article.imageUrl}` : 'https://getuikit.com/v2/docs/images/placeholder_600x400.svg'}`} alt="img"/>
@@ -101,9 +102,9 @@ const ArticlePage = () => {
                     <div className="p-4">
                     <ul className="flex space-x-2">
                             {
-                                article.tags?.map(tag => {
+                                article.tags?.map((tag, index) => {
                                     return (
-                                        <li className="bg-gray-200 p-2 rounded">{tag}</li>
+                                        <li key={index} className="bg-gray-200 p-2 rounded">{tag}</li>
                                     )
                                 })
                             }
@@ -122,7 +123,7 @@ const ArticlePage = () => {
                         {
                             article?.comments?.map(comment => {
                                 return (
-                                    <div className="mb-4 border-b pb-4">
+                                    <div className="mb-4 border-b pb-4" key={comment.id}>
                                         <div className="flex items-center mb-2">
                                             <img className="w-8 h-8 rounded-full mr-2" src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
                                                  alt="User Avatar"/>
