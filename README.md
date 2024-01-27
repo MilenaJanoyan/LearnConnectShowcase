@@ -1,3 +1,5 @@
+https://github.com/MilenaJanoyan/LearnConnectShowcase/assets/110425737/7148c417-bc0b-4d93-b6a8-9ed2f8144777
+
 # LearnConnectShowcase
 
 Welcome to LearnConnectShowcase! This repository houses Milena Janoyan's portfolio, where recruiters and potential employers can explore her extensive experience. Additionally, learners can peruse written articles and engage in discussions, fostering collaborative learning experiences.
@@ -13,7 +15,7 @@ LearnConnectShowcase serves as a comprehensive platform where users can:
 
 Before you begin, ensure you have the following installed on your computer:
 
-- [Node.js](https://nodejs.org/) (>= 14.x)
+- [Node.js](https://nodejs.org/) (>= 20.x)
 - [Git](https://git-scm.com/)
 
 ### Steps to Run the App
