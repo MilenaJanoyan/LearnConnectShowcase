@@ -103,12 +103,12 @@ const CreateArticle = () => {
     }
 
     return (
-        <div className="w-full pt-24 bg-[#f2f5ea] flex flex-col justify-center p-4 md:p-8 lg:py-24 lg:px-36 ">
-            <h1 className="text-2xl font-bold mb-4">Create Article Page</h1>
+        <div className="w-full pt-24 bg-[#f5ebe6] flex flex-col justify-center p-4 md:p-8 lg:py-24 lg:px-36 ">
+            <h1 className="text-2xl font-bold mb-4">Create Article</h1>
 
             <div className="flex flex-col items-center gap-4 self-start">
                 <label htmlFor="imageInput"
-                       className="mb-4 cursor-pointer bg-[#2c363f] text-white py-2 px-2 rounded hover:opacity-80 self-start">
+                       className="mb-4 cursor-pointer bg-[#766259] opacity-40 text-white py-2 px-2 rounded hover:opacity-80 self-start">
                     Add picture
                     <input
                         type="file"
@@ -121,7 +121,7 @@ const CreateArticle = () => {
                 {
                     imageUrl && (
                         <div className="pb-6 w-1/2 self-start">
-                            <button onClick={() => setImageUrl(null)}>Delete</button>
+                            <button className="mb-4 cursor-pointer bg-[#766259] opacity-40 text-white py-2 px-2 rounded hover:opacity-80 self-start" onClick={() => setImageUrl(null)}>Delete picture</button>
                             <img src={`${process.env.REACT_APP_API_URL}${imageUrl}`} alt="img"/>
                         </div>
                     )
@@ -150,7 +150,7 @@ const CreateArticle = () => {
                 <SimpleMdeReact value={text} onChange={onChange} options={options}/>
             </div>
 
-            <button onClick={handleSubmit} className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700 self-start">
+            <button onClick={handleSubmit} className="mb-4 cursor-pointer bg-[#766259] opacity-40 text-white py-2 px-2 rounded hover:opacity-80 self-start">
                 { !isEditing ? 'Publish' : 'Save' }
             </button>
         </div>

@@ -1,89 +1,122 @@
-import {SubstringText} from "../../../utils/formaters.ts";
-import {useState} from "react";
-import {login} from "../../../API/services/userService.ts";
-import {useNavigate} from "react-router-dom";
+import { SubstringText } from "../../../utils/formaters.ts";
+import { useEffect, useState } from "react";
+import { getMe, login } from "../../../API/services/userService.ts";
+import { useNavigate } from "react-router-dom";
+import { IUserInfo } from "../../../utils/types/user.ts";
+import { ROLE_USER, SUPER_ADMIN } from "../../../utils/constantUrls.ts";
+import { getPopularPosts } from "../../../API/services/postService.ts";
+import { IPopularPosts } from "../../../utils/types/post.ts";
 
 const PopularArticle = () => {
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+    const [userInfo, setUserInfo] = useState<null | IUserInfo>(null);
+    const [popularPosts, setPopularPosts] = useState<IPopularPosts[] | null>(
+        null
+    );
+    const [isAuth, setIsAuth] = useState(false);
+    const [selectedPostId, setSelectedPostId] = useState<null | string>(null);
 
-    const onClose = () => setIsOpen(false)
+    const getUserInfo = async () => {
+        try {
+            const res = await getMe();
+            if (res) {
+                setUserInfo(res);
+                setIsAuth(Boolean(res?.role === SUPER_ADMIN || ROLE_USER));
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const popular = async () => {
+        try {
+            const res = await getPopularPosts(3);
+            if (res) {
+                setPopularPosts(res.data);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    useEffect(() => {
+        getUserInfo();
+        popular();
+    }, []);
+
+    const onClose = () => setIsOpen(false);
 
     const handleLogin = async () => {
         try {
-            const res = await login({ email, password })
+            const res = await login({ email, password });
             if (res) {
-                navigate('/articles', { state: Math.random() })
+                navigate(`/article/${selectedPostId}`, { state: Math.random() });
+            } else {
+                setIsOpen(true);
             }
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
         onClose();
+        setSelectedPostId(null);
     };
+
+    const handleClickPopularPost = (postId: string) => {
+        setSelectedPostId(postId);
+        if (isAuth) {
+            navigate(`/article/${postId}`);
+        } else {
+            setIsOpen(true);
+        }
+    };
+
     return (
-        <div className="w-full min-h-screen bg-[#c2b4ad] flex items-center justify-center pb-24">
-            <div className="flex flex-col gap-8">
+        <div className="w-full min-h-screen bg-[#f5ebe6] flex items-center justify-center pb-24">
+            <div className="flex flex-col gap-8 w-full max-w-screen-xl px-4">
                 <div>
-                    <h1 className="text-4xl font-bold text-[#252221] uppercase pt-16">Popular articles</h1>
+                    <h1 className="text-4xl font-bold text-[#252221] uppercase pt-16">
+                        Popular articles
+                    </h1>
                 </div>
 
                 <div className="w-[140px] h-[6px] bg-[#252221]"/>
 
-                <div className="flex justify-between items-center gap-8">
-
-                    <div className="w-[350px] h-[500px] flex flex-col items-center gap-2 cursor-pointer" onClick={() => setIsOpen(true)}>
-                        <div>
-                            <img className="w-[350px] h-[350px] object-cover" src="/images/photo_53.jpg" alt="img"/>
-                        </div>
-                        <div className="flex w-[60%] text-center">
-                            <h3 className="text-2xl text-[#252221]">Entity Framework Insights</h3>
-                        </div>
-                        <div className="text-center">
-                            { SubstringText('Entity Framework is an open-source Object-Relational Mapping (ORM) framework developed by Microsoft. It is a part of the .NET ecosystem and provides a powerful and convenient way to', 260) }
-                        </div>
-                    </div>
-
-                    <div className="w-1 bg-[#a99f9a] h-[500px] rounded-full"/>
-
-                    <div className="w-[350px] h-[500px] flex flex-col items-center gap-2 cursor-pointer" onClick={() => setIsOpen(true)}>
-                        <div>
-                            <img className="w-[350px] h-[350px] object-cover" src="/images/photo_work.jpg" alt="img"/>
-                        </div>
-                        <div>
-                            <h3 className="text-2xl text-[#252221]">Node.js Migrations</h3>
-                        </div>
-                        <div className="text-center">
-                            { SubstringText('In Node.js, migrations refer to a way of managing and versioning changes to a database schema over time. Migrations are commonly used in web applications to keep track of changes to the database structure, such as creating new tables, modifying existing tables, or adding new columns.', 260) }
-                        </div>
-                    </div>
-
-                    <div className="w-1 bg-[#a99f9a] h-[500px] rounded-full"/>
-
-                    <div className="w-[350px] h-[500px] flex flex-col items-center gap-2 cursor-pointer" onClick={() => setIsOpen(true)}>
-                        <div>
-                            <img className="w-[350px] h-[350px] object-cover" src="/images/photo_2024.jpg" alt="img"/>
-                        </div>
-                        <div>
-                            <h3 className="text-2xl text-[#252221]">GraphQL Efficiency</h3>
-                        </div>
-                        <div className="text-center">
-                            { SubstringText('GraphQL is a query language for APIs that was developed by Facebook. It enables clients to request exactly the data they need, nothing more and nothing less. GraphQL provides a more efficient and flexible alternative to traditional REST APIs', 260) }
-                        </div>
-                    </div>
-
-
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+                    {popularPosts?.length &&
+                        popularPosts.map((post) => (
+                            <div
+                                className="flex flex-col  gap-2 cursor-pointer"
+                                onClick={() => handleClickPopularPost(post._id)}
+                                key={post._id}
+                            >
+                                <div>
+                                    <img
+                                        className="w-full h-[350px] object-cover"
+                                        src={`${process.env.REACT_APP_API_URL}${post.imageUrl}`}
+                                        alt="img"
+                                    />
+                                </div>
+                                <div className="flex w-full">
+                                    <h3 className="text-2xl text-[#252221]">{post.title}</h3>
+                                </div>
+                                <div className="pt-2">{SubstringText(post.text, 260)}</div>
+                            </div>
+                        ))}
                 </div>
             </div>
 
             {isOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <div className="bg-white p-8 rounded-md w-96">
-                        <h2 className="text-2xl font-semibold mb-4">Login</h2>
+                    <div className="bg-[#766259] p-8 rounded-2xl w-96">
+                        <h2 className="text-2xl text-[#f5ebe6] font-semibold mb-4">Login</h2>
                         <div className="mb-4">
-                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                            <label
+                                className="block text-[#f5ebe6] text-sm font-bold mb-2"
+                                htmlFor="email"
+                            >
                                 Email
                             </label>
                             <input
@@ -96,7 +129,10 @@ const PopularArticle = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                            <label
+                                className="block text-[#f5ebe6] text-sm font-bold mb-2"
+                                htmlFor="password"
+                            >
                                 Password
                             </label>
                             <input
@@ -110,13 +146,13 @@ const PopularArticle = () => {
                         </div>
                         <div className="flex justify-between">
                             <button
-                                className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
+                                className="bg-black opacity-50 text-white hover:opacity-80 px-4 py-2 rounded-md mr-2"
                                 onClick={handleLogin}
                             >
                                 Login
                             </button>
                             <button
-                                className="bg-gray-500 text-white px-4 py-2 rounded-md"
+                                className="bg-black opacity-50 text-white px-4 py-2 hover:opacity-80 rounded-md"
                                 onClick={onClose}
                             >
                                 Cancel
@@ -125,9 +161,8 @@ const PopularArticle = () => {
                     </div>
                 </div>
             )}
-
         </div>
-    )
-}
+    );
+};
 
 export default PopularArticle;

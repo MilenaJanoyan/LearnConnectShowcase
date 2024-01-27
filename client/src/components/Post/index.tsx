@@ -4,7 +4,7 @@ import { FaEdit } from "react-icons/fa";
 import {formatDateTime} from "../../utils/formaters.ts";
 
 
-const Post = ({ _id, tags, imageUrl, viewsCount, comments, createdAt, title, isAdmin } : IPostResponse) => {
+const Post = ({ _id, tags, imageUrl, viewsCount, comments, createdAt, title, isAdmin, isAuth } : IPostResponse) => {
 
     const navigate = useNavigate();
 
@@ -34,9 +34,9 @@ const Post = ({ _id, tags, imageUrl, viewsCount, comments, createdAt, title, isA
                 <div className="p-4">
                     <ul className="flex space-x-2">
                         {
-                            tags.map((tag: string) => {
+                            tags.map((tag: string, index: number) => {
                                 return (
-                                    <li className="bg-gray-200 p-2 rounded">{tag}</li>
+                                    <li key={index} className="bg-gray-200 p-2 rounded">{tag}</li>
                                 )
                             })
                         }

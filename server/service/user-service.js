@@ -12,7 +12,6 @@ class UserService {
             throw ApiError.BadRequest(`User with mailing address ${email} already exists`)
         }
         const hashPassword = await bcrypt.hash(password, 3);
-        const activationLink = uuidv4();
 
         const user = await UserModel.create({email, password: hashPassword, activationLink})
 
@@ -21,15 +20,6 @@ class UserService {
         await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
         return {...tokens, user: userDto}
-    }
-
-    async activate(activationLink) {
-        const user = await UserModel.findOne({activationLink})
-        if (!user) {
-            throw ApiError.BadRequest('Incorrect activation link')
-        }
-        user.isActivated = true;
-        await user.save();
     }
 
     async login(email, password) {

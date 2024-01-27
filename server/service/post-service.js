@@ -34,7 +34,25 @@ class PostService {
         res.json(posts);
     }
 
-    async getOne (req, res, next) {
+    async getPopularPosts(req, res, next) {
+        try {
+            const count = Number(req.params.count) || 3;
+            const popularPosts = await PostModel.find()
+                .sort({ viewsCount: -1 })
+                .limit(count)
+                .populate({
+                    path: 'user',
+                    select: '-password -__v'
+                })
+                .exec();
+
+            res.json(popularPosts);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getOne(req, res, next) {
         const postId = req.params.postId;
 
         PostModel.findOneAndUpdate(
@@ -66,7 +84,7 @@ class PostService {
         ).populate('user');
     }
 
-    async delete (req, res) {
+    async delete(req, res) {
         const postId = req.params.postId;
 
         PostModel.findOneAndDelete(
@@ -94,7 +112,7 @@ class PostService {
         );
     }
 
-    async update (req,res){
+    async update(req, res) {
         const postId = req.params.id;
 
         const parsedTags = Array.isArray(req.body.tags)

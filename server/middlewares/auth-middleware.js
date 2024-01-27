@@ -1,6 +1,7 @@
 import ApiError from '../exceptions/api-error.js';
 import tokenService from '../service/token-service.js';
 
+// Middleware that handles the authentication
 export default function authenticationMiddleware(req, res, next) {
     try {
         const authorizationHeader = req.headers.authorization;

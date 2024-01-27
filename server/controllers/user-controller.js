@@ -1,8 +1,10 @@
 import userService from '../service/user-service.js';
-import {validationResult} from 'express-validator';
+import { validationResult } from 'express-validator';
 import ApiError from '../exceptions/api-error.js';
 
- class UserController {
+class UserController {
+
+    // Registeres a new user
     async registration(req, res, next) {
         try {
             const errors = validationResult(req);
@@ -18,6 +20,7 @@ import ApiError from '../exceptions/api-error.js';
         }
     }
 
+    // Login API
     async login(req, res, next) {
         try {
             const { email, password } = req.body;
@@ -29,6 +32,7 @@ import ApiError from '../exceptions/api-error.js';
         }
     }
 
+    // Logout API
     async logout(req, res, next) {
         try {
             const { refreshToken } = req.cookies;
@@ -61,6 +65,7 @@ import ApiError from '../exceptions/api-error.js';
         }
     }
 
+    // Gets all the users
     async getUsers(req, res, next) {
         try {
             const users = await userService.getAllUsers();
@@ -70,13 +75,14 @@ import ApiError from '../exceptions/api-error.js';
         }
     }
 
-     async getUser(req, res, next) {
-         try {
-             return res.json(req.user);
-         } catch (e) {
-             next(e);
-         }
-     }
+    // Gets a specific user
+    async getUser(req, res, next) {
+        try {
+            return res.json(req.user);
+        } catch (e) {
+            next(e);
+        }
+    }
 }
 
 export default new UserController()
