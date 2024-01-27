@@ -54,7 +54,7 @@ const Authentication = () => {
 
   return (
     <div className="login-section h-screen bg-white flex flex-col  justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0 relative">
-      <div className="flex flex-col justify-between items-center gap-8 w-[350px]">
+      <div className="login-content flex flex-col justify-between items-center gap-8 w-[350px]">
         <div className="text-4xl font-bold text-white">M J</div>
         <div className="w-full flex flex-col gap-8">
           <form
@@ -140,10 +140,10 @@ const Authentication = () => {
           </Link>
         </div>
       </div>
-      <div className="text-white absolute bottom-[70px] right-[70px] mb-4 mr-4">
+      <div className="links text-white absolute bottom-[70px] right-[70px] mb-4 mr-4">
         © 2024 MJ. All Rights Reserved
       </div>
-      <div className="text-white absolute bottom-[70px] left-[70px] mb-4 ml-4 flex gap-4">
+      <div className="links text-white absolute bottom-[70px] left-[70px] mb-4 ml-4 flex gap-4 z-2">
         <Link
           to={"https://www.linkedin.com/in/milenajanoyan"}
           target="_blank"

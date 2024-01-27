@@ -5,7 +5,6 @@ import {DoughuntChart} from "../../components/elements/DoughuntChart";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { HiMiniLanguage } from "react-icons/hi2";
 import './index.css'
-import {Link} from "react-router-dom";
 
 const CvPage = () => {
 

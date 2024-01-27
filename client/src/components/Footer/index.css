@@ -1,0 +1,14 @@
+.footer-menu a::after {
+    content: "";
+    width: 0px;
+    height: 2px;
+    display: block;
+    background-color: #252221;
+    margin-top: 3px;
+    transition: all 0.5s;
+}
+
+.footer-menu a:hover::after,
+.footer-menu a.active::after {
+    width: 100%;
+}

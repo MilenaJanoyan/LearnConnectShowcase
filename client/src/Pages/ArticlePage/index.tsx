@@ -1,13 +1,13 @@
-import {useEffect, useState} from 'react';
-import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
-import {addComment, deletePost, getOnePosts} from "../../API/services/postService.ts";
-import {ICommentData, IPostResponse} from "../../utils/types/post.ts";
-import {formatDateTime} from "../../utils/formaters.ts";
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { addComment, deletePost, getOnePosts } from "../../API/services/postService.ts";
+import { ICommentData, IPostResponse } from "../../utils/types/post.ts";
+import { formatDateTime } from "../../utils/formaters.ts";
 import Markdown from "react-markdown";
-import {getMe} from "../../API/services/userService.ts";
-import {IUserInfo} from "../../utils/types/user.ts";
-import {SUPER_ADMIN} from "../../utils/constantUrls.ts";
-import {toast} from "react-toastify";
+import { getMe } from "../../API/services/userService.ts";
+import { IUserInfo } from "../../utils/types/user.ts";
+import { SUPER_ADMIN } from "../../utils/constantUrls.ts";
+import { toast } from "react-toastify";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteForever } from "react-icons/md";
 
@@ -93,7 +93,7 @@ const ArticlePage = () => {
         <div className="w-full min-h-screen bg-[#f5ebe6] flex flex-col items-center pt-24">
             <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 w-full md:flex md:flex-col md:justify-between">
                 <div className="w-full mb-8 md:mb-0">
-                    <img className="w-full h-[400px] object-cover" src={`${article.imageUrl ? `${process.env.REACT_APP_API_URL}${article.imageUrl}` : 'https://getuikit.com/v2/docs/images/placeholder_600x400.svg'}`} alt="img"/>
+                    <img className="w-full h-[400px] object-cover" src={`${article.imageUrl ? `${process.env.REACT_APP_API_URL}${article.imageUrl}` : 'https://getuikit.com/v2/docs/images/placeholder_600x400.svg'}`} alt="img" />
                     <div className="flex py-4 gap-4 items-center justify-between">
                         <div className="flex items-center gap-2">
                             <h3>Date</h3>
@@ -104,14 +104,14 @@ const ArticlePage = () => {
                             <p className="text-lg text-gray-400">Comments: {article.comments?.length}</p>
                         </div>
                     </div>
-                    
+
                     <div className="flex justify-between items-center">
                         <h1 className="text-6xl py-4">{article.title}</h1>
                         {
                             isAdmin && (
                                 <div className='flex items-center gap-4'>
-                                    <MdDeleteForever   onClick={removePost} width={25} height={25} className="text-gray-500 w-[30px] h-[30px] cursor-pointer" />
-                                    <CiEdit  onClick={editArticle} width={25} height={25} className="text-gray-500 w-[30px] h-[30px] cursor-pointer" />
+                                    <MdDeleteForever onClick={removePost} width={25} height={25} className="text-gray-500 w-[30px] h-[30px] cursor-pointer" />
+                                    <CiEdit onClick={editArticle} width={25} height={25} className="text-gray-500 w-[30px] h-[30px] cursor-pointer" />
                                 </div>
                             )
                         }
@@ -120,7 +120,7 @@ const ArticlePage = () => {
                         !!article.tags?.length && <span>Tags</span>
                     }
                     <div>
-                    <ul className="flex space-x-2">
+                        <ul className="flex space-x-2">
                             {
                                 article.tags?.map((tag, index) => {
                                     return (
@@ -147,10 +147,10 @@ const ArticlePage = () => {
                                     <div className="mb-4 border-b pb-4" key={comment.id}>
                                         <div className="flex items-center mb-2">
                                             <img className="w-8 h-8 rounded-full mr-2" src="https://www.pngitem.com/pimgs/m/581-5813504_avatar-dummy-png-transparent-png.png"
-                                                 alt="User Avatar"/>
+                                                alt="User Avatar" />
                                             <div>
                                                 <h4>{comment.userEmail}</h4>
-                                                <p>{ comment.comment }</p>
+                                                <p>{comment.comment}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -162,9 +162,9 @@ const ArticlePage = () => {
                         <h4 className="text-2xl mb-2">Add a Comment</h4>
                         <div className="flex items-center mb-2">
                             <textarea className="w-full p-2 border rounded resize-none"
-                                      placeholder="Write your comment..."
-                                      value={comment}
-                                      onChange={(e) => setComment(e.target.value)}
+                                placeholder="Write your comment..."
+                                value={comment}
+                                onChange={(e) => setComment(e.target.value)}
                             ></textarea>
                         </div>
                         <button className="bg-[#766259] opacity-80 text-white px-4 py-2 rounded hover:opacity-40" onClick={sendComment}>Add Comment</button>

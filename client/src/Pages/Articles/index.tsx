@@ -73,7 +73,7 @@ const Articles = () => {
                 <div className="w-full flex justify-end">
                     {isAdmin && (
                         <button
-                            className="mb-4 cursor-pointer bg-[#2c363f] text-white py-2 px-2 rounded hover:opacity-80"
+                            className="mb-4 cursor-pointer bg-[#766259] opacity-60 text-white py-2 px-2 rounded hover:opacity-90 "
                             onClick={() => navigate("/article")}
                         >
                             Create Article

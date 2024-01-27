@@ -21,7 +21,7 @@ export const BriefInfo = () => {
                 <div className="w-full md:w-1/2 relative md:right-20 z-0">
                     <div className="relative h-60 md:h-full">
                         <img
-                            className="w-full h-full object-cover"
+                            className="w-full h-[80vh] object-cover"
                             src="/images/homePagePhoto.jpg"
                             alt="photo"
                         />

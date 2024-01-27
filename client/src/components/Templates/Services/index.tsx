@@ -21,7 +21,7 @@ const Services = () => {
     ]
 
     return (
-        <div className="w-full min-h-screen bg-[#484240] flex items-center justify-center">
+        <div className="w-full min-h-screen bg-[#766259] flex items-center justify-center">
             <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 flex justify-between md:flex-row">
                 <div className="w-full md:w-1/3 h-full py-16 justify-center items-center text-center md:text-left">
                     <div className="w-[140px] h-[6px] bg-[#f5ebe6] mb-6"/>

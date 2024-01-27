@@ -110,11 +110,11 @@ const PopularArticle = () => {
 
             {isOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <div className="bg-white p-8 rounded-md w-96">
-                        <h2 className="text-2xl font-semibold mb-4">Login</h2>
+                    <div className="bg-[#766259] p-8 rounded-2xl w-96">
+                        <h2 className="text-2xl text-[#f5ebe6] font-semibold mb-4">Login</h2>
                         <div className="mb-4">
                             <label
-                                className="block text-gray-700 text-sm font-bold mb-2"
+                                className="block text-[#f5ebe6] text-sm font-bold mb-2"
                                 htmlFor="email"
                             >
                                 Email
@@ -130,7 +130,7 @@ const PopularArticle = () => {
                         </div>
                         <div className="mb-4">
                             <label
-                                className="block text-gray-700 text-sm font-bold mb-2"
+                                className="block text-[#f5ebe6] text-sm font-bold mb-2"
                                 htmlFor="password"
                             >
                                 Password
@@ -146,13 +146,13 @@ const PopularArticle = () => {
                         </div>
                         <div className="flex justify-between">
                             <button
-                                className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
+                                className="bg-black opacity-50 text-white hover:opacity-80 px-4 py-2 rounded-md mr-2"
                                 onClick={handleLogin}
                             >
                                 Login
                             </button>
                             <button
-                                className="bg-gray-500 text-white px-4 py-2 rounded-md"
+                                className="bg-black opacity-50 text-white px-4 py-2 hover:opacity-80 rounded-md"
                                 onClick={onClose}
                             >
                                 Cancel
