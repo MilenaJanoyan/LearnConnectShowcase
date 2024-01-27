@@ -61,7 +61,7 @@ To run the development server, follow these steps:
 3. Start the server:
 
     ```
-    npm start
+    npm run dev
     ```
 
 4. Open another terminal window/tab.
@@ -69,7 +69,7 @@ To run the development server, follow these steps:
 5. Navigate to the client directory:
 
     ```
-    cd ../client
+    cd client
     ```
 
 6. Install client dependencies:
@@ -81,7 +81,7 @@ To run the development server, follow these steps:
 7. Start the React development server:
 
     ```
-    npm start
+    npm run dev
     ```
 
 ## Support
