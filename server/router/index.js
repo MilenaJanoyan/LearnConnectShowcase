@@ -15,6 +15,7 @@ router.post('/logout', userController.logout);
 
 router.post('/post',authMiddleware, postController.create)
 router.get('/post', postController.getAll)
+router.get('/post/popular/:count', postController.getPopularPosts)
 router.get('/post/:postId', postController.getOne)
 router.delete('/post/:postId',authMiddleware, postController.delete)
 router.put('/post/:id',authMiddleware, postController.update)

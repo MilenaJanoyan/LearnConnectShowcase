@@ -21,7 +21,7 @@ const Services = () => {
     ]
 
     return (
-        <div className="w-full min-h-screen bg-[#484240] flex items-center justify-center">
+        <div className="w-full min-h-screen bg-[#766259] flex items-center justify-center">
             <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 flex justify-between md:flex-row">
                 <div className="w-full md:w-1/3 h-full py-16 justify-center items-center text-center md:text-left">
                     <div className="w-[140px] h-[6px] bg-[#f5ebe6] mb-6"/>
@@ -42,9 +42,8 @@ const Services = () => {
                 <div className="w-full md:w-1/2 md:right-20 ">
                     <div className="md:h-full flex flex-col justify-around gap-8">
                         {skillsContent.map((item, index) => (
-                            <AnimatePresence initial={false}>
+                            <AnimatePresence initial={false} key={item.id}>
                                 <div
-                                    key={item.id}
                                     className="flex flex-col gap-6"
                                     onMouseOver={() => handleMouseOver(index)}
                                     onMouseLeave={handleMouseLeave}

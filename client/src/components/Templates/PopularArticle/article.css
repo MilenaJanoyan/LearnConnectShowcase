@@ -12,3 +12,10 @@
     height: 500px;
     object-fit: cover;
 }
+
+.authModal {
+    width: 24rem;
+    height: 100%;
+    background-image: url("https://snaptaxsearch.com/wp-content/uploads/2014/04/bokeh-cover-bg.jpg");
+    background-size: cover;
+}

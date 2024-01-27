@@ -1,6 +1,11 @@
 .btnLine {
-    @apply px-4 py-2 border border-[#252221] rounded-sm text-[#252221]
+    @apply px-4 py-2 border border-[#252221] rounded-lg text-[#252221]
     hover:bg-[#252221] hover:text-white transition-all duration-300
+}
+
+.btnLineLogin {
+    @apply px-4 py-2 border border-[#fff] rounded-lg text-[#fff]
+    hover:opacity-80 transition-all duration-300
 }
 
 .mobile-menu-enter {
@@ -51,6 +56,9 @@
     transition: letter-spacing 0.5s;
     color: #252221
 }
+.animated-text.login {
+    color: white
+}
 
 .text-container::after {
     content: "ilena \00a0";
@@ -78,4 +86,17 @@
     transform: translateX(0);
 }
 
+.navbar-menu a::after {
+    content: "";
+    width: 0px;
+    height: 2px;
+    display: block;
+    background-color: #252221;
+    margin-top: 3px;
+    transition: all 0.5s;
+}
 
+.navbar-menu a:hover::after,
+.navbar-menu a.active::after {
+    width: 100%;
+}

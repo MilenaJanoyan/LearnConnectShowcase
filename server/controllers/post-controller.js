@@ -30,6 +30,16 @@ class PostController {
         }
     }
 
+    // Get 3 Popular Posts
+    async getPopularPosts (req, res, next) {
+        try {
+            const popularPosts = await postService.getPopularPosts(req, res, next)
+            return popularPosts
+        } catch (err) {
+            next(err)
+        }
+    }
+
     // Deletes an article
     async delete (req, res, next) {
         try {

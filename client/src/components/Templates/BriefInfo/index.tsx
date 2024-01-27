@@ -2,7 +2,7 @@ import './home.css';
 
 export const BriefInfo = () => {
     return (
-        <div className="w-full min-h-screen bg-[#f5ebe6] flex items-center justify-center">
+        <div className="w-full min-h-screen bg-[#f5ebe6] flex items-center justify-center pt-20">
             <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 flex relative flex-col md:flex-row">
                 <div
                     className="w-full md:w-1/2 h-full py-16 justify-center items-center relative z-10 text-center md:text-left">
@@ -21,8 +21,8 @@ export const BriefInfo = () => {
                 <div className="w-full md:w-1/2 relative md:right-20 z-0">
                     <div className="relative h-60 md:h-full">
                         <img
-                            className="w-full h-full object-cover"
-                            src="/images/image.jpg"
+                            className="w-full h-[80vh] object-cover"
+                            src="/images/homePagePhoto.jpg"
                             alt="photo"
                         />
                     </div>
