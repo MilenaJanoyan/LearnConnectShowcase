@@ -102,7 +102,7 @@ const PopularArticle = () => {
                                 <div className="flex w-full">
                                     <h3 className="text-2xl text-[#252221]">{post.title}</h3>
                                 </div>
-                                <div className="p-4">{SubstringText(post.text, 260)}</div>
+                                <div className="pt-2">{SubstringText(post.text, 260)}</div>
                             </div>
                         ))}
                 </div>

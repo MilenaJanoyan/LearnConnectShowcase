@@ -93,7 +93,7 @@ const ArticlePage = () => {
         <div className="w-full min-h-screen bg-[#f5ebe6] flex flex-col items-center pt-24">
             <div className="container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 w-full md:flex md:flex-col md:justify-between">
                 <div className="w-full mb-8 md:mb-0">
-                    <img className="w-full h-[400px] object-cover" src={`${article.imageUrl ? `${process.env.REACT_APP_API_URL}${article.imageUrl}` : 'https://getuikit.com/v2/docs/images/placeholder_600x400.svg'}`} alt="img" />
+                    <img className="w-full h-[400px] object-cover" src={`${process.env.REACT_APP_API_URL}${article.imageUrl}`} alt="img" />
                     <div className="flex py-4 gap-4 items-center justify-between">
                         <div className="flex items-center gap-2">
                             <h3>Date</h3>
