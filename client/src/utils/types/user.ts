@@ -13,7 +13,6 @@ export interface IUserInfo {
 }
 
 export interface IUserResponse {
-    activationLink: string
     email: string
     isActivated: string
     role: string

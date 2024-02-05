@@ -1,21 +1,107 @@
 .img-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 }
 
 .img-container img {
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.authModalContainer {
+  display: flex;
+  width: 60%;
+  height: 60vh;
+  background-image: url("/images/loginPhoto.jpg");
+  background-size: cover;
+}
+
+.leftContent {
+  flex: 1;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  left: 90%;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  z-index: 1;
+}
+
+.leftContentText {
+  position: absolute;
+  bottom: 120px;
+  display: flex;
+  left: 30%;
+}
+
+.rightContent {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .authModal {
-    width: 24rem;
-    height: 100%;
-    background-image: url("https://snaptaxsearch.com/wp-content/uploads/2014/04/bokeh-cover-bg.jpg");
-    background-size: cover;
+  padding: 20px;
+  height: 80%;
+  position: relative;
+}
+
+.bg-image-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(8px);
+  background-image: url("/images/loginPhoto.jpg");
+  background-size: cover;
+  z-index: -1;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  color: #f5ebe6;
+  outline: none;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+}
+
+.buttonContainer button {
+  background-color: #000;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.buttonContainer button:hover .icon {
+  opacity: 0;
+}
+
+.buttonContainer button .icon {
+  margin-left: 0.5rem;
+  transition: opacity 0.3s ease;
 }

@@ -7,7 +7,7 @@ const About = () => {
                     <div
                         className="relative z-10 pb-8 bg-[#f5ebe6] sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
                         <svg
-                            className="hidden lg:block absolute right-0 inset-y-0 h-full w-52 text-white transform translate-x-1/2"
+                            className="hidden lg:block absolute right-0 inset-y-0 h-full w-[7rem] text-white transform translate-x-1/2"
                             fill="#f5ebe6" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                             <polygon points="50,0 100,0 50,100 0,100"></polygon>
                         </svg>

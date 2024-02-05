@@ -21,7 +21,6 @@ router.delete('/post/:postId',authMiddleware, postController.delete)
 router.put('/post/:id',authMiddleware, postController.update)
 router.put('/addComment/:id',authMiddleware, postController.addComment)
 
-router.get('/activate/:link', userController.activate);
 router.get('/me',authMiddleware, userController.getUser)
 router.get('/refresh', userController.refresh);
 router.get('/users', authMiddleware, userController.getUsers);
